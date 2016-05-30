@@ -5,8 +5,10 @@ NIM:=nim -d:release
 BINS:=nimer nvill euant0 \
   euant_lines euant_streams euant_sequtils euant_streams_sequtils
 
-build: ${BINS}
 time: build
-	for b in ${BINS}; do echo $$b; time ./$$b; done
+	for b in ${BINS}; do echo $$b; time -p ./$$b; done
+build: ${BINS}
+clean:
+	rm -rf ${BINS} nimcache/
 %: %.nim
 	${NIM} c $<

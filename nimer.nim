@@ -1,10 +1,10 @@
 import strutils
 
-var fd:File=open("out.txt", fmWrite)
+var fd:File=open("output.txt", fmWrite)
 var a:seq[string]
-var b,line,v:string
+var b:string
 
-for line in lines("temp.txt"):
+for line in lines("input.txt"):
     a=line.split("\t")
     for i,v in pairs(a):
         a[i]=a[i] & "_mark"
