@@ -1,13 +1,16 @@
 import strutils, streams, sequtils
 
-let
-    inFile = newFileStream("input.txt", fmRead)
-    outFile = open("output.txt", fmWrite)
+proc main() =
+  let
+      inFile = newFileStream("input.txt", fmRead)
+      outFile = open("output.txt", fmWrite)
 
-var ln = ""
+  var ln = ""
 
-while inFile.readLine(ln):
-  outFile.writeLine(map(ln.split('\t'), proc(x: string): string = x & "_mark").join(", "))
+  while inFile.readLine(ln):
+    outFile.writeLine(map(ln.split('\t'), proc(x: string): string = x & "_mark").join(", "))
 
-outFile.close()
-inFile.close()
+  outFile.close()
+  inFile.close()
+
+main()
