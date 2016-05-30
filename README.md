@@ -1,3 +1,5 @@
 # Testing nim speed for parsing
 
-* http://forum.nim-lang.org/t/2282
+This fails for `make -j build`.
+
+* http://forum.nim-lang.org/
