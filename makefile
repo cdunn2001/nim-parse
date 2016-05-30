@@ -7,6 +7,9 @@ BINS:=nimer nvill euant0 \
 
 time: build
 	for b in ${BINS}; do echo $$b; time -p ./$$b; done
+input.txt:
+	time python gen.py 100000 12 $@
+	ls -lh $@
 build: ${BINS}
 clean:
 	rm -rf ${BINS} nimcache/
